@@ -1,0 +1,266 @@
+Program 01: Load a dataset suitable for clustering using the Pandas library.
+Iris feature dataset: (150, 4)
+Missing values: 0
+
+Program 02: Display the first and last five records of the dataset.
+First five:
+   sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)
+0              5.100             3.500              1.400             0.200
+1              4.900             3.000              1.400             0.200
+2              4.700             3.200              1.300             0.200
+3              4.600             3.100              1.500             0.200
+4              5.000             3.600              1.400             0.200
+Last five:
+     sepal length (cm)  sepal width (cm)  petal length (cm)  \
+145              6.700             3.000              5.200   
+146              6.300             2.500              5.000   
+147              6.500             3.000              5.200   
+148              6.200             3.400              5.400   
+149              5.900             3.000              5.100   
+
+     petal width (cm)  
+145             2.300  
+146             1.900  
+147             2.000  
+148             2.300  
+149             1.800  
+
+Program 03: Explore dataset information, summary statistics, and data types.
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 150 entries, 0 to 149
+Data columns (total 4 columns):
+ #   Column             Non-Null Count  Dtype  
+---  ------             --------------  -----  
+ 0   sepal length (cm)  150 non-null    float64
+ 1   sepal width (cm)   150 non-null    float64
+ 2   petal length (cm)  150 non-null    float64
+ 3   petal width (cm)   150 non-null    float64
+dtypes: float64(4)
+memory usage: 4.8 KB
+Data types:
+sepal length (cm)    float64
+sepal width (cm)     float64
+petal length (cm)    float64
+petal width (cm)     float64
+dtype: object
+Summary:
+       sepal length (cm)  sepal width (cm)  petal length (cm)  \
+count            150.000           150.000            150.000   
+mean               5.840             3.060              3.760   
+std                0.830             0.440              1.770   
+min                4.300             2.000              1.000   
+25%                5.100             2.800              1.600   
+50%                5.800             3.000              4.350   
+75%                6.400             3.300              5.100   
+max                7.900             4.400              6.900   
+
+       petal width (cm)  
+count           150.000  
+mean              1.200  
+std               0.760  
+min               0.100  
+25%               0.300  
+50%               1.300  
+75%               1.800  
+max               2.500  
+
+Program 04: Select relevant numerical features for clustering.
+Selected: ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
+Shape: (150, 4)
+
+Program 05: Standardize the dataset before clustering using StandardScaler.
+First three standardized rows:
+[[-0.901  1.019 -1.34  -1.315]
+ [-1.143 -0.132 -1.34  -1.315]
+ [-1.385  0.328 -1.397 -1.315]]
+Feature means: [-0. -0. -0. -0.]
+
+Program 06: Implement the K-Means clustering algorithm.
+Model: KMeans(n_clusters=3, n_init=10, random_state=42)
+Inertia: 139.82
+
+Program 07: Apply K-Means clustering with K = 2 clusters.
+Cluster counts: [100  50]
+Silhouette: 0.582
+
+Program 08: Apply K-Means clustering with K = 3 clusters.
+Cluster counts: [53 50 47]
+Silhouette: 0.46
+
+Program 09: Apply K-Means clustering with different values of K and compare the results.
+   K  inertia  silhouette
+0  2  222.362       0.582
+1  3  139.820       0.460
+2  4  114.093       0.387
+3  5   90.928       0.346
+4  6   81.544       0.317
+
+Program 10: Determine the optimal number of clusters using the Elbow Method.
+The bend suggests a small K; inspect K=2 and K=3.
+
+Figures: 10_figure_1.png
+Program 11: Visualize clusters using a scatter plot.
+
+Figures: 11_figure_1.png
+Program 12: Display the cluster centroids obtained from the K-Means algorithm.
+Centroids in original units:
+   sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)
+0              5.802             2.674              4.370             1.413
+1              5.006             3.428              1.462             0.246
+2              6.781             3.096              5.511             1.972
+
+Program 13: Assign cluster labels to the original dataset.
+   sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)  \
+0              5.100             3.500              1.400             0.200   
+1              4.900             3.000              1.400             0.200   
+2              4.700             3.200              1.300             0.200   
+3              4.600             3.100              1.500             0.200   
+4              5.000             3.600              1.400             0.200   
+5              5.400             3.900              1.700             0.400   
+6              4.600             3.400              1.400             0.300   
+7              5.000             3.400              1.500             0.200   
+
+   cluster  
+0        1  
+1        1  
+2        1  
+3        1  
+4        1  
+5        1  
+6        1  
+7        1  
+cluster
+0    53
+1    50
+2    47
+Name: count, dtype: int64
+
+Program 14: Compare clustering results before and after feature scaling.
+Raw-space silhouette: 0.553
+Scaled-space silhouette: 0.46
+Partition agreement (ARI): 0.804
+
+Program 15: Implement Agglomerative Hierarchical Clustering.
+Cluster counts: [71 49 30]
+Silhouette: 0.447
+
+Program 16: Generate a dendrogram using the SciPy library.
+
+Figures: 16_figure_1.png
+Program 17: Apply Hierarchical Clustering using Ward linkage.
+Ward silhouette: 0.447
+
+Program 18: Apply Hierarchical Clustering using Complete linkage.
+Complete silhouette: 0.45
+Counts: [77 49 24]
+
+Program 19: Compare different linkage methods.
+    linkage  silhouette  smallest_cluster
+0      ward       0.447                30
+1  complete       0.450                24
+2   average       0.480                 3
+3    single       0.505                 1
+
+Program 20: Visualize Hierarchical Clustering results.
+
+Figures: 20_figure_1.png
+Program 21: Compare Hierarchical Clustering with K-Means clustering.
+    method  silhouette
+0  K-Means       0.460
+1     Ward       0.447
+Partition agreement (ARI): 0.626
+
+Program 22: Apply Principal Component Analysis (PCA) to reduce dataset dimensions.
+Original dimensions: 4
+All explained variance ratios: [0.73  0.229 0.037 0.005]
+
+Program 23: Reduce a dataset from multiple features to two principal components.
+Reduced shape: (150, 2)
+First five rows:
+[[-2.265  0.48 ]
+ [-2.081 -0.674]
+ [-2.364 -0.342]
+ [-2.299 -0.597]
+ [-2.39   0.647]]
+
+Program 24: Visualize the transformed data using a two-dimensional scatter plot.
+
+Figures: 24_figure_1.png
+Program 25: Display the explained variance ratio of principal components.
+PC1 and PC2 variance ratios: [0.73  0.229]
+Total retained variance: 0.9581
+
+Program 26: Determine the cumulative explained variance.
+Cumulative variance: [0.73  0.958 0.995 1.   ]
+Components needed for at least 95% variance: 2
+
+Program 27: Compare the dataset before and after dimensionality reduction.
+Before PCA: (150, 4)
+After PCA: (150, 2)
+Reconstruction MSE: 0.04187
+
+Program 28: Perform K-Means clustering on the PCA-transformed dataset.
+PCA cluster counts: [53 50 47]
+PCA-space silhouette: 0.509
+
+Program 29: Compare clustering performance before and after applying PCA.
+Four-feature silhouette: 0.46
+PCA-space silhouette: 0.509
+PCA labels scored in original scaled space: 0.46
+Partition agreement (ARI): 1.0
+
+Program 30: Calculate the Silhouette Score for cluster evaluation.
+K=3 silhouette: 0.46
+Range: -1 to 1; larger usually means clearer separation.
+
+Program 31: Compare Silhouette Scores for different values of K.
+   K  silhouette
+0  2       0.582
+1  3       0.460
+2  4       0.387
+3  5       0.346
+4  6       0.317
+Highest silhouette among tested K: 2
+
+Program 32: Analyze the characteristics of each cluster using descriptive statistics.
+Cluster mean measurements:
+         sepal length (cm)  sepal width (cm)  petal length (cm)  \
+cluster                                                           
+0                    5.802             2.674              4.370   
+1                    5.006             3.428              1.462   
+2                    6.781             3.096              5.511   
+
+         petal width (cm)  
+cluster                    
+0                   1.413  
+1                   0.246  
+2                   1.972  
+Cluster standard deviations:
+         sepal length (cm)  sepal width (cm)  petal length (cm)  \
+cluster                                                           
+0                    0.405             0.254              0.560   
+1                    0.352             0.379              0.174   
+2                    0.491             0.262              0.638   
+
+         petal width (cm)  
+cluster                    
+0                   0.311  
+1                   0.105  
+2                   0.331  
+
+Program 33: Visualize cluster distributions using pair plots or scatter plots.
+
+Figures: 33_figure_1.png
+Program 34: Save the clustered dataset as a CSV file.
+Saved: iris_clustered.csv
+Reloaded shape: (150, 5)
+
+Program 35: Compare the performance of K-Means and Hierarchical Clustering and summarize the findings.
+    method  silhouette
+0  K-Means       0.460
+1     Ward       0.447
+K-Means: centroid-based, requires K and a seed.
+Ward: merge-based, can be inspected with a dendrogram.
+Highest score here: K-Means
+These scores describe this dataset and scaling choice.
+

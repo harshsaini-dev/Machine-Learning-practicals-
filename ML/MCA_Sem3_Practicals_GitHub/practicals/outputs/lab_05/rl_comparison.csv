@@ -1,0 +1,5 @@
+algorithm,environment,training_episodes,eval_mean_return
+Q-learning,FrozenLake,3000,1.0
+Q-learning,Grid World,2000,0.95
+Binned Q-learning,CartPole,250,114.8
+DQN,CartPole,250,107.0

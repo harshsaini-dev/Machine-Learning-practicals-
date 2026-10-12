@@ -1,0 +1,251 @@
+Program 01: Install and configure the Gymnasium (or OpenAI Gym) library.
+Gymnasium version: 1.4.0
+Install command: python -m pip install gymnasium
+FrozenLake created; start state: 0
+
+Program 02: Create and execute a simple Reinforcement Learning environment.
+Initial state: 0
+
+[41mS[0mFFF
+FHFH
+FFFH
+HFFG
+
+After moving right: 1
+Reward: 0
+Terminated: False Truncated: False
+
+Program 03: Explore the observation space and action space of an RL environment.
+Observation space: Discrete(16)
+Action space: Discrete(4)
+Number of states: 16
+Number of actions: 4
+Actions: 0=left, 1=down, 2=right, 3=up
+
+Program 04: Display the states, actions, rewards, and termination conditions of an environment.
+State IDs:
+ [[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]]
+Map:
+ [['S' 'F' 'F' 'F']
+ ['F' 'H' 'F' 'H']
+ ['F' 'F' 'F' 'H']
+ ['H' 'F' 'F' 'G']]
+S=start, F=frozen, H=hole, G=goal
+Reward: 1 at goal; otherwise 0.
+Termination: goal or hole.
+Truncation: the time limit is reached.
+
+Program 05: Simulate random actions in the FrozenLake environment.
+   step  state  action  next_state  reward
+0     1      0       0           0       0
+1     2      0       3           0       0
+2     3      0       2           1       0
+3     4      1       1           5       0
+
+Program 06: Implement the Q-Learning algorithm for the FrozenLake environment.
+Q-learning functions defined.
+Q <- Q + alpha * (reward + gamma * max_next_Q - Q)
+
+Program 07: Initialize and update the Q-table during training.
+Q-table shape: (16, 4)
+Updated Q[14, 2]: 0.5
+
+Program 08: Train the agent for multiple episodes using Q-Learning.
+Training episodes: 3000
+Total environment steps: 19108
+Goal visits: 2596
+Last 100 training mean reward: 0.95
+
+Program 09: Display the learned Q-table after training.
+    left  down  right    up
+0  0.735 0.774  0.774 0.735
+1  0.735 0.000  0.815 0.774
+2  0.774 0.857  0.774 0.815
+3  0.815 0.000  0.773 0.468
+4  0.761 0.815  0.000 0.551
+5  0.000 0.000  0.000 0.000
+6  0.000 0.902  0.000 0.815
+7  0.000 0.000  0.000 0.000
+8  0.583 0.000  0.857 0.386
+9  0.808 0.844  0.902 0.000
+10 0.857 0.950  0.000 0.857
+11 0.000 0.000  0.000 0.000
+12 0.000 0.000  0.000 0.000
+13 0.000 0.649  0.950 0.803
+14 0.902 0.950  1.000 0.902
+15 0.000 0.000  0.000 0.000
+
+Program 10: Evaluate the trained Q-Learning agent.
+Evaluation episodes: 100
+Success rate: 1.0
+Mean reward: 1.0
+
+Program 11: Plot the cumulative rewards obtained during training.
+
+Figures: 11_figure_1.png
+Program 12: Study the effect of different learning rates on Q-Learning performance.
+   alpha  train_last100  eval_mean  eval_std
+0  0.100          0.943      1.000     0.000
+1  0.500          0.910      1.000     0.000
+2  0.900          0.917      1.000     0.000
+
+Program 13: Study the effect of different discount factor (Gamma) values.
+   gamma  train_last100  eval_mean  eval_std
+0  0.500          0.933      1.000     0.000
+1  0.900          0.910      1.000     0.000
+2  0.990          0.910      1.000     0.000
+
+Program 14: Compare exploration and exploitation using different epsilon values.
+   epsilon  train_last100  eval_mean  eval_std
+0    0.100          0.893      1.000     0.000
+1    0.500          0.363      1.000     0.000
+2    0.900          0.043      1.000     0.000
+
+Program 15: Implement an epsilon-greedy action selection policy.
+Greedy action: 2
+Ten epsilon-greedy actions (epsilon=0.3):
+[2, 2, 2, 2, 2, 2, 2, 3, 2, 2]
+
+Program 16: Design a simple Grid World environment.
+Grid: Discrete(16) Discrete(4)
+Walls: [5, 7, 11]
+Start: 0 Goal: 15
+
+Program 17: Train a Q-Learning agent in the custom Grid World.
+Training episodes: 2000
+Evaluation mean reward: 0.95
+Successful episodes: 100
+
+Program 18: Visualize the optimal path learned by the agent.
+Greedy learned path: [0, 4, 8, 12, 13, 14, 15]
+Path length: 6
+Reached goal: True
+Shortest possible steps: 6
+
+Figures: 18_figure_1.png
+Program 19: Compare agent performance in FrozenLake and Grid World environments.
+                 environment  states  actions  success_rate  mean_return
+0  FrozenLake (non-slippery)      16        4         1.000        1.000
+1                 Grid World      16        4         1.000        0.950
+Reward rules differ; mean returns are not a fair ranking.
+
+Program 20: Analyze the convergence behavior of the Q-Learning algorithm.
+Final 100-episode mean maximum Q update: 0.0
+
+Figures: 20_figure_1.png
+Program 21: Install the required libraries for Deep Q-Network implementation.
+PyTorch version: 2.14.1+cpu
+NumPy version: 2.3.5
+Device: CPU
+Install: python -m pip install torch gymnasium matplotlib
+Tensor: tensor([1., 2., 3.])
+
+Program 22: Implement a basic Deep Q-Network using TensorFlow or PyTorch.
+DQN(
+  (layers): Sequential(
+    (0): Linear(in_features=4, out_features=64, bias=True)
+    (1): ReLU()
+    (2): Linear(in_features=64, out_features=64, bias=True)
+    (3): ReLU()
+    (4): Linear(in_features=64, out_features=2, bias=True)
+  )
+)
+Inputs: four CartPole observations; outputs: two Q-values.
+Replay capacity: 10000; batch: 64; gamma: 0.99.
+
+Program 23: Train a DQN agent on the CartPole environment.
+Training episodes: 250
+Environment steps: 14644
+First 20 mean reward: 18.15
+Last 20 mean reward: 103.9
+
+Program 24: Plot the episode-wise reward obtained during DQN training.
+
+Figures: 24_figure_1.png
+Program 25: Evaluate the trained DQN agent.
+Greedy evaluation episodes: 20
+Mean return: 107.0
+Standard deviation: 11.353
+Minimum / maximum: 89.0 141.0
+500-step episodes: 0
+
+Program 26: Compare Q-Learning and DQN performance.
+           algorithm  training_episodes  environment_steps  evaluation_mean  \
+0  Binned Q-learning                250              16769          114.800   
+1                DQN                250              14644          107.000   
+
+   evaluation_std  
+0          42.843  
+1          11.353  
+
+Program 27: Analyze the effect of replay memory on DQN performance.
+           setting  seed  eval_mean  last20_train  steps
+0  Replay + target    42    107.000       103.900  14644
+1  Replay + target    43      9.450        12.700   4869
+2        No replay    42      9.450         9.500   2999
+3        No replay    43      9.400         9.900   2794
+
+Program 28: Study the role of the target network in DQN.
+           setting  seed  eval_mean  last20_train  steps
+0  Replay + target    42    107.000       103.900  14644
+1  Replay + target    43      9.450        12.700   4869
+4        No target    42      9.400         9.850   2740
+5        No target    43      9.400         9.650   2828
+Target network: frozen bootstrap estimates between copies.
+No target: bootstrap with the current online network.
+
+Program 29: Save the trained DQN model.
+Saved: cartpole_dqn.pt
+Architecture: 4 -> 64 -> 64 -> 2
+
+Program 30: Load the saved DQN model and perform testing.
+Reloaded evaluation mean: 107.0
+Matches original evaluation: True
+
+Program 31: Compare cumulative rewards obtained using different RL algorithms.
+CartPole total training rewards:
+Binned Q-learning: 16769.0
+DQN: 14644.0
+
+Figures: 31_figure_1.png
+Program 32: Visualize the learning curve of the RL agent.
+
+Figures: 32_figure_1.png
+Program 33: Compare training time and convergence of Q-Learning and DQN.
+           algorithm  seconds  training_steps  last20_mean  steps_per_second
+0  Binned Q-learning    0.544           16769       81.250         30821.585
+1                DQN    3.460           14644      103.900          4232.359
+Timing includes interaction and training, excludes evaluation.
+
+Program 34: Analyze the impact of hyperparameters on learning performance.
+DQN learning-rate results (250 episodes):
+   learning_rate  seed  eval_mean
+0         0.0005    42     9.4500
+1         0.0005    43     9.4500
+4         0.0010    42   107.0000
+5         0.0010    43     9.4500
+2         0.0020    42   500.0000
+3         0.0020    43    98.1000
+Mean by rate:
+                  mean      std
+learning_rate                  
+0.0005          9.4500   0.0000
+0.0010         58.2250  68.9783
+0.0020        299.0500 284.1862
+
+Program 35: Prepare a comparative report summarizing the performance of Reinforcement Learning algorithms.
+           algorithm environment  training_episodes  eval_mean_return
+0         Q-learning  FrozenLake               3000             1.000
+1         Q-learning  Grid World               2000             0.950
+2  Binned Q-learning    CartPole                250           114.800
+3                DQN    CartPole                250           107.000
+FrozenLake: non-slippery; reward 1 only at the goal.
+Grid World: goal reward 1 and a -0.01 step penalty.
+CartPole: reward 1 per step, maximum 500 steps.
+Tabular Q stores values; DQN approximates values with a network.
+The two CartPole runs use matching evaluation seeds.
+Use more training seeds before claiming one method is better.
+

@@ -1,0 +1,251 @@
+Program 01: Load a regression dataset using the Pandas library.
+Dataset: scikit-learn diabetes (real clinical data)
+Shape: (442, 11)
+
+Program 02: Display the first and last five records of the dataset.
+First five records:
+     age    sex    bmi     bp  ...     s4     s5     s6  target
+0  0.038  0.051  0.062  0.022  ... -0.003  0.020 -0.018 151.000
+1 -0.002 -0.045 -0.051 -0.026  ... -0.039 -0.068 -0.092  75.000
+2  0.085  0.051  0.044 -0.006  ... -0.003  0.003 -0.026 141.000
+3 -0.089 -0.045 -0.012 -0.037  ...  0.034  0.023 -0.009 206.000
+4  0.005 -0.045 -0.036  0.022  ... -0.003 -0.032 -0.047 135.000
+
+[5 rows x 11 columns]
+Last five records:
+       age    sex    bmi     bp  ...     s4     s5     s6  target
+437  0.042  0.051  0.020  0.060  ... -0.003  0.031  0.007 178.000
+438 -0.006  0.051 -0.016 -0.068  ...  0.034 -0.018  0.044 104.000
+439  0.042  0.051 -0.016  0.017  ... -0.011 -0.047  0.015 132.000
+440 -0.045 -0.045  0.039  0.001  ...  0.027  0.045 -0.026 220.000
+441 -0.045 -0.045 -0.073 -0.081  ... -0.039 -0.004  0.003  57.000
+
+[5 rows x 11 columns]
+
+Program 03: Explore dataset information and descriptive statistics.
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 442 entries, 0 to 441
+Data columns (total 11 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   age     442 non-null    float64
+ 1   sex     442 non-null    float64
+ 2   bmi     442 non-null    float64
+ 3   bp      442 non-null    float64
+ 4   s1      442 non-null    float64
+ 5   s2      442 non-null    float64
+ 6   s3      442 non-null    float64
+ 7   s4      442 non-null    float64
+ 8   s5      442 non-null    float64
+ 9   s6      442 non-null    float64
+ 10  target  442 non-null    float64
+dtypes: float64(11)
+memory usage: 38.1 KB
+Statistics:
+         count    mean    std    min    25%     50%     75%     max
+age    442.000  -0.000  0.050 -0.110 -0.040   0.010   0.040   0.110
+sex    442.000   0.000  0.050 -0.040 -0.040  -0.040   0.050   0.050
+bmi    442.000  -0.000  0.050 -0.090 -0.030  -0.010   0.030   0.170
+bp     442.000  -0.000  0.050 -0.110 -0.040  -0.010   0.040   0.130
+s1     442.000  -0.000  0.050 -0.130 -0.030  -0.000   0.030   0.150
+s2     442.000   0.000  0.050 -0.120 -0.030  -0.000   0.030   0.200
+s3     442.000   0.000  0.050 -0.100 -0.040  -0.010   0.030   0.180
+s4     442.000   0.000  0.050 -0.080 -0.040  -0.000   0.030   0.190
+s5     442.000   0.000  0.050 -0.130 -0.030  -0.000   0.030   0.130
+s6     442.000   0.000  0.050 -0.140 -0.030  -0.000   0.030   0.140
+target 442.000 152.130 77.090 25.000 87.000 140.500 211.500 346.000
+Total missing: 0
+
+Program 04: Identify input (independent) and output (dependent) variables.
+Inputs: ['age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6']
+Output: target
+Simple regression input: bmi
+
+Program 05: Split the dataset into training and testing sets.
+Training: (353, 10) Testing: (89, 10)
+Overlapping indices: 0
+
+Program 06: Implement a Simple Linear Regression model.
+LinearRegression()
+Input feature: ['bmi']
+
+Program 07: Train the Linear Regression model using the training dataset.
+Model trained on 353 records
+Coefficient: [998.578]
+Intercept: 152.003
+
+Program 08: Predict output values using the trained Linear Regression model.
+First predictions: [145.806 188.857 147.959 203.925 131.815 127.509 322.316 197.468]
+Test R2: 0.233
+
+Program 09: Visualize the Linear Regression line using Matplotlib.
+
+Figures: 09_figure_1.png
+Program 10: Compare actual and predicted values.
+   actual  predicted    error
+0 219.000    145.806   73.194
+1  70.000    188.857 -118.857
+2 202.000    147.959   54.041
+3 230.000    203.925   26.075
+4 111.000    131.815  -20.815
+5  84.000    127.509  -43.509
+6 242.000    322.316  -80.316
+7 272.000    197.468   74.532
+
+Program 11: Display the regression coefficient and intercept.
+Slope: 998.578
+Intercept: 152.003
+Equation: target = slope * bmi + intercept
+
+Program 12: Predict the output for new user-defined input values.
+New inputs (dataset scale):
+    bmi
+0 0.020
+1 0.040
+Predictions: [171.975 191.946]
+
+Program 13: Implement Multiple Linear Regression using multiple independent variables.
+Multiple regression feature count: 10
+LinearRegression()
+
+Program 14: Train the Multiple Linear Regression model.
+Trained features: ['age' 'sex' 'bmi' 'bp' 's1' 's2' 's3' 's4' 's5' 's6']
+Training R2: 0.528
+
+Program 15: Predict output values using the testing dataset.
+   actual  predicted
+0 219.000    139.548
+1  70.000    179.517
+2 202.000    134.039
+3 230.000    291.417
+4 111.000    123.790
+5  84.000     92.172
+6 242.000    258.232
+7 272.000    181.337
+Test metrics:
+MAE      42.794
+MSE    2900.194
+RMSE     53.853
+R2        0.453
+dtype: float64
+
+Program 16: Compare actual and predicted values graphically.
+
+Figures: 16_figure_1.png
+Program 17: Analyze the effect of each independent variable on prediction.
+s1    -931.489
+s5     736.199
+bmi    542.429
+s2     518.062
+bp     347.704
+s4     275.318
+sex   -241.964
+s3     163.420
+s6      48.671
+age     37.904
+dtype: float64
+
+Program 18: Implement Polynomial Regression of Degree 2.
+Degree 2 test metrics:
+MAE      52.384
+MSE    4085.025
+RMSE     63.914
+R2        0.229
+dtype: float64
+
+Program 19: Implement Polynomial Regression of Degree 3.
+Degree 3 test metrics:
+MAE      52.181
+MSE    4064.443
+RMSE     63.753
+R2        0.233
+dtype: float64
+
+Program 20: Compare Linear Regression and Polynomial Regression models.
+                   MAE      MSE   RMSE    R2
+Linear BMI      52.260 4061.826 63.732 0.233
+Polynomial 2    52.384 4085.025 63.914 0.229
+Polynomial 3    52.181 4064.443 63.753 0.233
+Multiple linear 42.794 2900.194 53.853 0.453
+
+Program 21: Visualize Polynomial Regression curves.
+
+Figures: 21_figure_1.png
+Program 22: Predict output values using the Polynomial Regression model.
+    bmi  degree2  degree3
+0 0.020  170.154  170.299
+1 0.040  190.577  191.306
+
+Program 23: Compare prediction accuracy for different polynomial degrees.
+               RMSE    R2
+Linear BMI   63.732 0.233
+Polynomial 2 63.914 0.229
+Polynomial 3 63.753 0.233
+Smallest test RMSE: Linear BMI
+
+Program 24: Calculate Mean Absolute Error (MAE).
+MAE: 42.794
+
+Program 25: Calculate Mean Squared Error (MSE).
+MSE: 2900.194
+
+Program 26: Calculate Root Mean Squared Error (RMSE).
+RMSE: 53.853
+
+Program 27: Calculate the R-squared (R²) Score.
+R2: 0.453
+
+Program 28: Compare the performance of Linear and Polynomial Regression using evaluation metrics.
+                   MAE      MSE   RMSE    R2
+Linear BMI      52.260 4061.826 63.732 0.233
+Polynomial 2    52.384 4085.025 63.914 0.229
+Polynomial 3    52.181 4064.443 63.753 0.233
+Multiple linear 42.794 2900.194 53.853 0.453
+All models evaluated on 89 test records
+
+Program 29: Interpret the meaning of MSE and R² values.
+Multiple linear MSE: 2900.194
+Multiple linear R2: 0.453
+MSE is average squared error; lower is better.
+R2 = 1 is perfect; 0 matches the test-mean baseline.
+A negative R2 is worse than that baseline.
+
+Program 30: Visualize prediction errors using scatter plots.
+
+Figures: 30_figure_1.png
+Program 31: Train the regression model using standardized features.
+MAE      42.794
+MSE    2900.194
+RMSE     53.853
+R2        0.453
+dtype: float64
+
+Program 32: Compare model performance before and after feature scaling.
+            MAE      MSE   RMSE    R2
+unscaled 42.794 2900.194 53.853 0.453
+scaled   42.794 2900.194 53.853 0.453
+Maximum prediction difference: 1.9895196601282805e-13
+
+Program 33: Perform regression using another real-world dataset.
+Dataset: Linnerud (20 real exercise measurements)
+Train/test: (15, 3) (5, 3)
+MAE     24.404
+MSE    765.485
+RMSE    27.667
+R2      -2.227
+dtype: float64
+
+Program 34: Save the trained regression model using the Joblib library.
+Saved: regression_model.joblib
+Model includes fitted scaler and linear regression
+
+Program 35: Load the saved model and use it to predict new data.
+Inputs (first two held-out records):
+      age    sex    bmi     bp  ...    s3     s4     s5     s6
+287 0.045 -0.045 -0.006 -0.016  ... 0.019  0.034  0.032 -0.005
+211 0.093 -0.045  0.037  0.022  ... 0.001 -0.039 -0.023 -0.022
+
+[2 rows x 10 columns]
+Reloaded predictions: [139.548 179.517]
+Matches original: True
+

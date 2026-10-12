@@ -1,0 +1,284 @@
+Program 01: Load a dataset and identify missing values in each column.
+Shape: (20, 7)
+age             1
+salary          1
+experience      0
+department      1
+joined          0
+bonus          12
+performance     0
+dtype: int64
+
+Program 02: Display the percentage of missing values in every feature.
+age            5.000
+salary         5.000
+experience     0.000
+department     5.000
+joined         0.000
+bonus         60.000
+performance    0.000
+dtype: float64
+
+Program 03: Remove rows containing missing values from the dataset.
+Before: 20
+After: 8
+      age     salary  experience department      joined    bonus  \
+12 32.000  46000.000           8         HR  2023-01-01 4000.000   
+13 36.000 250000.000          12      Sales  2023-02-01 5000.000   
+14 23.000  27000.000           2         IT  2023-03-01 2000.000   
+15 34.000  49000.000          10         HR  2023-04-01 4500.000   
+16 28.000  36000.000           5      Sales  2023-05-01 3000.000   
+
+    performance  
+12           72  
+13           81  
+14           58  
+15           79  
+16           67  
+
+Program 04: Remove columns having more than 50% missing values.
+Kept: ['age', 'salary', 'experience', 'department', 'joined', 'performance']
+Dropped: ['bonus']
+
+Program 05: Replace missing numerical values using the mean.
+     age    salary  experience    bonus  performance
+0 22.000 25000.000           1 3462.500           55
+1 25.000 30000.000           3 3462.500           61
+2 28.000 35000.000           5 3462.500           64
+3 31.000 40000.000           7 3462.500           70
+4 35.000 50000.000          10 3462.500           77
+5 28.842 45000.000           8 3462.500           74
+6 26.000 49157.895           4 3462.500           66
+7 29.000 37000.000           6 3462.500           68
+Missing numeric values: 0
+
+Program 06: Replace missing numerical values using the median.
+     age    salary  experience    bonus  performance
+0 22.000 25000.000           1 3350.000           55
+1 25.000 30000.000           3 3350.000           61
+2 28.000 35000.000           5 3350.000           64
+3 31.000 40000.000           7 3350.000           70
+4 35.000 50000.000          10 3350.000           77
+5 29.000 45000.000           8 3350.000           74
+6 26.000 39000.000           4 3350.000           66
+7 29.000 37000.000           6 3350.000           68
+
+Program 07: Replace missing categorical values using the mode.
+Mode: IT
+5    HR
+6    IT
+7    IT
+8    IT
+9    HR
+Name: department, dtype: object
+
+Program 08: Fill missing values using forward fill (Forward Propagation).
+     age    salary department
+4 35.000 50000.000      Sales
+5 35.000 45000.000         HR
+6 26.000 45000.000         IT
+7 29.000 37000.000         IT
+8 33.000 48000.000         IT
+Missing bonus values: 12
+
+Program 09: Fill missing values using backward fill (Backward Propagation).
+     age    salary department
+4 35.000 50000.000      Sales
+5 26.000 45000.000         HR
+6 26.000 37000.000         IT
+7 29.000 37000.000         IT
+8 33.000 48000.000         IT
+Missing bonus values: 0
+
+Program 10: Compare the dataset before and after handling missing values.
+             before  after
+age               1  0.000
+salary            1  0.000
+experience        0  0.000
+department        1  0.000
+joined            0  0.000
+bonus            12    NaN
+performance       0  0.000
+
+Program 11: Detect outliers using the Interquartile Range (IQR) method.
+IQR limits: 13375.0 64375.0
+       salary  experience
+13 250000.000          12
+
+Program 12: Detect outliers using the Z-score method.
+       salary  z_score
+13 250000.000    4.305
+
+Program 13: Visualize outliers using a Box Plot.
+
+Figures: 13_figure_1.png
+Program 14: Visualize outliers using a Scatter Plot.
+
+Figures: 14_figure_1.png
+Program 15: Remove outliers using the IQR method.
+Rows before: 20
+Rows after: 19
+
+Program 16: Replace outliers with the median value.
+Replacement median: 39000.0
+      salary  experience
+13 39000.000          12
+
+Program 17: Cap outliers using percentile-based capping.
+5th and 95th percentile: 26900.0 60000.000000000146
+New salary range: 26900.0 60000.000000000146
+
+Program 18: Compare the dataset before and after outlier treatment.
+        original   removed  replaced    capped
+count     20.000    19.000    20.000    20.000
+mean   48650.000 38052.632 38100.000 39245.000
+std    47981.658  7699.016  7496.666  8808.517
+min    25000.000 25000.000 25000.000 26900.000
+25%    32500.000 32000.000 32500.000 32500.000
+50%    39000.000 39000.000 39000.000 39000.000
+75%    45250.000 44000.000 43500.000 45250.000
+max   250000.000 50000.000 50000.000 60000.000
+
+Program 19: Apply Min-Max Normalization to numerical features.
+    age  salary  experience
+0 0.000   0.000       0.000
+1 0.214   0.200       0.182
+2 0.429   0.400       0.364
+3 0.643   0.600       0.545
+4 0.929   1.000       0.818
+Minimums: [0.0, 0.0, 0.0]
+Maximums: [0.9999999999999998, 1.0, 0.9999999999999999]
+
+Program 20: Apply Standardization (Z-score Scaling).
+     age  salary  experience
+0 -1.767  -1.793      -1.683
+1 -0.993  -1.109      -1.003
+2 -0.219  -0.424      -0.323
+3  0.555   0.260       0.357
+4  1.586   1.629       1.377
+Means: [-0.0, -0.0, -0.0]
+Standard deviations: [1.0, 1.0, 1.0]
+
+Program 21: Apply Robust Scaling to handle outliers.
+     age  salary  experience
+0 -1.273  -1.098      -1.176
+1 -0.727  -0.706      -0.706
+2 -0.182  -0.314      -0.235
+3  0.364   0.078       0.235
+4  1.091   0.863       0.941
+Outlier salary after scaling: 16.54901960784314
+
+Program 22: Apply Max Absolute Scaling.
+    age  salary  experience
+0 0.611   0.500       0.083
+1 0.694   0.600       0.250
+2 0.778   0.700       0.417
+3 0.861   0.800       0.583
+4 0.972   1.000       0.833
+Maximum absolute values: [1.0, 1.0, 1.0]
+
+Program 23: Compare original and normalized datasets.
+   original_salary  minmax_salary
+0        25000.000          0.000
+1        30000.000          0.200
+2        35000.000          0.400
+3        40000.000          0.600
+4        50000.000          1.000
+5        45000.000          0.800
+6        39000.000          0.560
+7        37000.000          0.480
+
+Program 24: Visualize the effect of normalization using histograms.
+
+Figures: 24_figure_1.png
+Program 25: Visualize the effect of scaling using box plots.
+
+Figures: 25_figure_1.png
+Program 26: Compare different scaling techniques on the same dataset.
+   original  minmax  standard  robust  maxabs
+0 25000.000   0.000    -1.793  -1.098   0.500
+1 30000.000   0.200    -1.109  -0.706   0.600
+2 35000.000   0.400    -0.424  -0.314   0.700
+3 40000.000   0.600     0.260   0.078   0.800
+4 50000.000   1.000     1.629   0.863   1.000
+5 45000.000   0.800     0.944   0.471   0.900
+6 39000.000   0.560     0.123   0.000   0.780
+7 37000.000   0.480    -0.151  -0.157   0.740
+
+Program 27: Encode categorical variables using Label Encoding.
+Mapping: {'HR': 0, 'IT': 1, 'Sales': 2}
+Encoded values: [1 0 2 1 2 0 1 1 1 0 2 1 0 2 1 0 2 1 0 2]
+
+Program 28: Encode categorical variables using One-Hot Encoding.
+   dept_HR  dept_IT  dept_Sales
+0        0        1           0
+1        1        0           0
+2        0        0           1
+3        0        1           0
+4        0        0           1
+5        1        0           0
+6        0        1           0
+7        0        1           0
+
+Program 29: Perform Binary Encoding on categorical data.
+Categories: ['HR', 'IT', 'Sales']
+   dept_bit_0  dept_bit_1
+0           0           1
+1           1           0
+2           1           1
+3           0           1
+4           1           1
+5           1           0
+6           0           1
+7           0           1
+
+Program 30: Create a new feature by combining two existing columns.
+     salary  experience  salary_per_year
+0 25000.000           1        25000.000
+1 30000.000           3        10000.000
+2 35000.000           5         7000.000
+3 40000.000           7         5714.286
+4 50000.000          10         5000.000
+
+Program 31: Extract year, month, and day from a date column.
+   year  month  day
+0  2022      1    1
+1  2022      2    1
+2  2022      3    1
+3  2022      4    1
+4  2022      5    1
+
+Program 32: Create a new feature using mathematical transformations.
+   experience  experience_squared  salary_sqrt
+0           1                   1      158.114
+1           3                   9      173.205
+2           5                  25      187.083
+3           7                  49      200.000
+4          10                 100      223.607
+
+Program 33: Apply Log Transformation to skewed data.
+Original skew: 4.291
+Log skew: 3.116
+
+Figures: 33_figure_1.png
+Program 34: Perform Feature Selection using correlation analysis.
+Correlation with performance:
+age          0.963
+salary       0.905
+experience   0.985
+Name: performance, dtype: float64
+Selected at |r| >= 0.60: ['age', 'salary', 'experience']
+
+Program 35: Create a final preprocessed dataset ready for Machine Learning.
+Train: (15, 7) Test: (5, 7)
+Remaining missing values: 0
+   num__age  num__salary  num__experience  cat__department_HR  \
+0    -0.058       -0.145            0.682               1.000   
+1    -0.638       -0.371           -0.834               0.000   
+2     0.522       -0.239            0.303               0.000   
+
+   cat__department_IT  cat__department_Sales  performance  
+0               0.000                  0.000           74  
+1               1.000                  0.000           65  
+2               1.000                  0.000           70  
+

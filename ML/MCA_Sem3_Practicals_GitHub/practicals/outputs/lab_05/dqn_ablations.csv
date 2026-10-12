@@ -1,0 +1,7 @@
+setting,seed,eval_mean,last20_train,steps
+Replay + target,42,107.0,103.9,14644
+Replay + target,43,9.45,12.7,4869
+No replay,42,9.45,9.5,2999
+No replay,43,9.4,9.9,2794
+No target,42,9.4,9.85,2740
+No target,43,9.4,9.65,2828
