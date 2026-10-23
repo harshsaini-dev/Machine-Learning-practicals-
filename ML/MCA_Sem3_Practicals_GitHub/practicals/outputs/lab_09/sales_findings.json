@@ -1,0 +1,19 @@
+{
+  "records": 2000,
+  "distinct_customers": 200,
+  "total_sales_inr": 63880103.63,
+  "total_profit_inr": 17883232.78,
+  "top_product_by_revenue": "Laptop",
+  "top_region_by_profit": "South",
+  "nulls_before_cleaning": {
+    "order_id": 0,
+    "date": 0,
+    "customer_id": 0,
+    "region": 0,
+    "product": 0,
+    "quantity": 0,
+    "sales": 0,
+    "cost": 0
+  },
+  "note": "All figures are simulated business records, not real transactions."
+}

@@ -1,0 +1,16 @@
+{
+  "dataset_rows": 450,
+  "countries": 3,
+  "nulls_before_cleaning": {
+    "date": 0,
+    "country": 0,
+    "population": 0,
+    "confirmed": 0,
+    "recovered": 0,
+    "deaths": 0,
+    "people_vaccinated": 0
+  },
+  "total_confirmed_at_end": 455812,
+  "total_deaths_at_end": 6658,
+  "note": "All figures are simulated and must not be reported as real COVID-19 statistics."
+}
